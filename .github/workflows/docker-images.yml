@@ -29,9 +29,8 @@ jobs:
 
       - name: '🐳 Building Image (PHP ${{ matrix.php }})'
         run: |
-          cd pkg/vms/dockerfiles/
           docker build -f pressbot.Dockerfile \
-            --tag ghcr.io/getpressbot/pressbot:php${{ matrix.php }} \
+            --tag ghcr.io/getpressbot/pressbot-php${{ matrix.php }}:latest \
             --build-arg="PHP=${{ matrix.php }}" .
           
-          docker push ghcr.io/getpressbot/pressbot:php${{ matrix.php }}
+          docker push ghcr.io/getpressbot/pressbot-php${{ matrix.php }}:latest
